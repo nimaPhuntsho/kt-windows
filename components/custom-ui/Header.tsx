@@ -1,12 +1,12 @@
 import React from "react";
-import { Button } from "../ui/button";
 import Image from "next/image";
+import { AlignJustify } from "lucide-react";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-between p-2">
-      <Image src="/images/kt-logo.svg" width={150} height={100} alt="logo" />
-      <Button variant="destructive">Get a quote</Button>
+    <div className="flex items-center justify-between">
+      <Image src="/images/kt-logo.svg" width={200} height={150} alt="logo" />
+      <AlignJustify />
     </div>
   );
 };
