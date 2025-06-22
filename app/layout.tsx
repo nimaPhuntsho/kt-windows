@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import Header from "@/components/custom-ui/Header";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className}`}>
+        <Header />
         {children}
         <Toaster />
       </body>

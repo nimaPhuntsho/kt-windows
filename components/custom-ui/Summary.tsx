@@ -14,6 +14,7 @@ import { customFetch } from "@/utils/fetch";
 import { Loader2Icon } from "lucide-react";
 import { toast } from "sonner";
 import { inquirySchema } from "./contact-form/schema";
+import { envMode } from "@/devconfig/envConfig";
 
 const SummaryCard = () => {
   const [fetchState, setFetchState] = useState<{
@@ -42,6 +43,8 @@ const SummaryCard = () => {
 
   const handleEdit = () => router.push("/contact");
 
+  const { production } = envMode;
+
   useEffect(() => {
     if (firstName === "") router.push("/contact");
   }, [firstName]);
@@ -49,7 +52,7 @@ const SummaryCard = () => {
   const handleConfirm = async () => {
     try {
       setFetchState((state) => ({ ...state, loading: true }));
-      const baseUrl = "http://localhost:3000";
+      const baseUrl = production;
       const result = await customFetch({
         method: "POST",
         endpoint: `${baseUrl}/api/v1/quotations`,

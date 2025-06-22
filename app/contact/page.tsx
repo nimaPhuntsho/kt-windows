@@ -4,7 +4,7 @@ import React from "react";
 const Contact = async () => {
   return (
     <>
-      <div className={`w-full flex justify-center p-4`}>
+      <div className={`w-full flex justify-center p-6`}>
         <ContactForm />
       </div>
     </>
