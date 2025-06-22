@@ -4,7 +4,7 @@ import React from "react";
 const Summary = () => {
   return (
     <>
-      <div className="flex justify-center p-2 ">
+      <div className="flex justify-center mt-5">
         <SummaryCard />
       </div>
     </>

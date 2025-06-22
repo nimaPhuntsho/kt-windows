@@ -43,7 +43,7 @@ const SummaryCard = () => {
 
   const handleEdit = () => router.push("/contact");
 
-  const { production } = envMode;
+  const { production, dev } = envMode;
 
   useEffect(() => {
     if (firstName === "") router.push("/contact");
@@ -52,7 +52,7 @@ const SummaryCard = () => {
   const handleConfirm = async () => {
     try {
       setFetchState((state) => ({ ...state, loading: true }));
-      const baseUrl = production;
+      const baseUrl = dev;
       const result = await customFetch({
         method: "POST",
         endpoint: `${baseUrl}/api/v1/quotations`,

@@ -113,7 +113,7 @@ const ContactForm = () => {
               name="services.selectedServices"
               control={control}
               render={({ field }) => (
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-4">
                   {services.map((service) => (
                     <div className="flex items-center gap-2" key={service}>
                       <Checkbox

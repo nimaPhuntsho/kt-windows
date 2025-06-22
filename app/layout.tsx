@@ -40,10 +40,14 @@ export default function RootLayout({
       <body
         className={`${manrope.className} p-6 flex flex-col items-center w-full`}
       >
-        <div className={` w-full max-w-[1200px] `}>
-          <Header />
-          {children}
-          <Toaster />
+        <div
+          className={`flex flex-col justify-between h-[100dvh] w-full max-w-[1200px] `}
+        >
+          <div>
+            <Header />
+            {children}
+            <Toaster />
+          </div>
           <Footer />
         </div>
       </body>

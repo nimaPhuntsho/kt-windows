@@ -123,6 +123,7 @@ export async function POST(req: NextRequest) {
       }
     );
   }
+  console.log(parsedBody.data);
 
   sendEmail({
     from: "inquiry@resend.dev",
