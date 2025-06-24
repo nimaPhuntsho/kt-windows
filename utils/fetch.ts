@@ -1,11 +1,11 @@
 import { Schema, z } from "zod";
 
-type fetchOptions = {
-  endpoint: string;
-  method: "GET" | "POST";
-  schema: Schema;
-  body?: Object;
-};
+// type fetchOptions = {
+//   endpoint: string;
+//   method: "GET" | "POST";
+//   schema: Schema;
+//   body?: Object;
+// };
 
 export async function customFetch<TSchema extends Schema>({
   endpoint,
@@ -35,6 +35,14 @@ export async function customFetch<TSchema extends Schema>({
       }
       const jsonResponse = await response.json();
       const parsedJson = schema.safeParse(jsonResponse.data);
+
+      console.log({
+        parsedJsonError: parsedJson.error,
+      });
+
+      console.log({
+        parsedJsonData: parsedJson.data,
+      });
 
       if (parsedJson.error) {
         return {

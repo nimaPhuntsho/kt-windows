@@ -28,8 +28,8 @@ const SummaryCard = () => {
   });
   const {
     inquiryData: {
-      firstName,
-      lastName,
+      first_name,
+      last_name,
       middleName,
       email,
       description,
@@ -46,20 +46,22 @@ const SummaryCard = () => {
   const { production, dev } = envMode;
 
   useEffect(() => {
-    if (firstName === "") router.push("/contact");
-  }, [firstName]);
+    if (first_name === "") router.push("/contact");
+  }, [first_name]);
 
   const handleConfirm = async () => {
+    console.log(first_name, last_name);
+
     try {
       setFetchState((state) => ({ ...state, loading: true }));
-      const baseUrl = dev;
-      const result = await customFetch({
+      const baseUrl = production;
+      const { success, data } = await customFetch({
         method: "POST",
         endpoint: `${baseUrl}/api/v1/quotations`,
         body: {
-          first_name: firstName,
+          first_name: first_name,
           middle_name: middleName,
-          last_name: lastName,
+          last_name: last_name,
           email: email,
           mobile: mobile,
           description: description,
@@ -68,12 +70,16 @@ const SummaryCard = () => {
         schema: inquirySchema,
       });
 
-      if (!result) {
+      if (!success) {
+        console.log(success);
+
+        console.log("test");
+
         setFetchState((state) => ({ ...state, error: true }));
         return;
       }
       setFetchState((state) => ({ ...state, loading: false, success: true }));
-      toast(`Thank you ${firstName}!`, {
+      toast(`Thank you ${first_name}!`, {
         description:
           "We have received your inquiry, we will get back to as soon as possible.",
         position: "bottom-center",
@@ -88,14 +94,14 @@ const SummaryCard = () => {
   };
   return (
     <>
-      <Card className="w-full max-w-[600px] ">
+      <Card className="w-full max-w-[600px]">
         <CardHeader>
           <CardTitle className={`text-2xl font-bold`}>
             Review and Confirm
           </CardTitle>
         </CardHeader>
 
-        <CardContent className={`flex flex-col gap-4 text-sm`}>
+        <CardContent className={`flex flex-col gap-4`}>
           <div>
             <p className="font-bold">Inquired on</p>
             <p>{new Date().toDateString()}</p>
@@ -103,7 +109,7 @@ const SummaryCard = () => {
           <div>
             <p className="font-bold">Full Name</p>
             <p>
-              {firstName} {middleName} {lastName}
+              {first_name} {middleName} {last_name}
             </p>
           </div>
 

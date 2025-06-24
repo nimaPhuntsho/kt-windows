@@ -9,7 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { PhoneForwarded } from "lucide-react";
+import { customStyles } from "./styles/styles";
 export default async function Home() {
+  const { bg, text } = customStyles;
   const services = [
     {
       title: "Sliding windows",
@@ -98,13 +101,16 @@ export default async function Home() {
   return (
     <div>
       <main className={`flex flex-col gap-2`}>
-        <div className={`flex flex-col md:flex-row gap-2 mt-5`}>
+        <div className={`flex flex-col md:flex-row gap-2`}>
           <div
-            className={`relative w-full  items-start justify-center flex flex-col gap-4 bg-[#2C2C2C] p-7 rounded-sm text-[#FED2E2] min-h-[500px] `}
+            style={{
+              backgroundColor: `${bg.primary}`,
+            }}
+            className={`relative w-full  items-start justify-center flex flex-col gap-4  p-7 min-h-[500px] `}
           >
             <h1 className={`text-5xl `}>
               Transform Your Space with Stylish{" "}
-              <span className={`font-bold text-[#FFF287]`}>Windows</span> &
+              <span className={`font-bold text-[#D95F59]`}>Windows</span> &
               Outdoor Living
             </h1>
             <h2 className={`text-md text-justify`}>
@@ -112,24 +118,20 @@ export default async function Home() {
               across Canberra.
             </h2>
             <Link href="/contact">
-              <Button variant="secondary" size="custom">
-                Get in touch
-              </Button>
+              <Button size="custom">Get in touch</Button>
             </Link>
           </div>
           <div className={`w-full h-[600px] relative`}>
             <Image
-              className={`rounded-sm`}
+              className={`rounded-lg`}
               src="/images/home-bg.jpg"
               fill
               alt="bg-home"
             />
           </div>
         </div>
-        <div
-          className={`flex flex-col items-start gap-2 bg-[#102E50] text-white p-6 rounded-sm`}
-        >
-          <h1 className={`text-4xl font-bold`}>Our Services</h1>
+        <div className={`flex flex-col items-start gap-2  p-6 `}>
+          <h1 className={`text-5xl `}>Our Services</h1>
           <div className="flex w-full overflow-x-auto  gap-2">
             {services.map((service) => (
               <Card className={`min-w-[300px]`} key={service.title}>
@@ -147,6 +149,12 @@ export default async function Home() {
               </Card>
             ))}
           </div>
+          <Link href="tel:0434154112">
+            <Button variant="outline">
+              <PhoneForwarded />
+              Call us now
+            </Button>
+          </Link>
         </div>
       </main>
     </div>

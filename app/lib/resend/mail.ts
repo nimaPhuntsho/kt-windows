@@ -26,6 +26,7 @@ export const sendEmail = async ({
     return {
       success: false as const,
       message: "There was problem sending the email",
+      error: error.message,
     };
   }
 
@@ -33,5 +34,6 @@ export const sendEmail = async ({
     success: true,
     message: "Email sent!",
     data: data,
+    error: null,
   };
 };

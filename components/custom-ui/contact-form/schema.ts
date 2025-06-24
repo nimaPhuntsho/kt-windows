@@ -11,11 +11,11 @@ export const ServiceEnum = z.enum([
 ]);
 
 export const inquirySchema = z.object({
-  firstName: z.string().min(2, {
+  first_name: z.string().min(2, {
     message: "First Name should at least have 2 alphabets",
   }),
   middleName: z.string().optional(),
-  lastName: z.string().min(2, {
+  last_name: z.string().min(2, {
     message: "Last Name should at least have 2 alphabets",
   }),
   email: z.string().email({

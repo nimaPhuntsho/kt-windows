@@ -35,9 +35,9 @@ const ContactForm = () => {
   const submitHandler: SubmitHandler<InquiryType> = (data) => {
     const polishedData = {
       ...data,
-      firstName: startCase(data.firstName),
+      firstName: startCase(data.first_name),
       middleName: startCase(data.middleName),
-      lastName: startCase(data.lastName),
+      lastName: startCase(data.last_name),
     };
     update(polishedData);
     router.push("/contact/summary");
@@ -58,12 +58,12 @@ const ContactForm = () => {
           <div className={`flex flex-col gap-2`}>
             <Label>First Name</Label>
             <Controller
-              name="firstName"
+              name="first_name"
               control={control}
               render={({ field }) => <Input type="text" {...field} />}
             />
-            {errors.firstName && (
-              <p className="text-[#de2c41]">{errors.firstName.message}</p>
+            {errors.first_name && (
+              <p className="text-[#de2c41]">{errors.first_name.message}</p>
             )}
           </div>
           <div className={`flex flex-col gap-2`}>
@@ -77,12 +77,12 @@ const ContactForm = () => {
           <div className={`flex flex-col gap-2`}>
             <Label>Last Name</Label>
             <Controller
-              name="lastName"
+              name="last_name"
               control={control}
               render={({ field }) => <Input type="text" {...field} />}
             />
-            {errors.lastName && (
-              <p className="text-[#de2c41]">{errors.lastName.message}</p>
+            {errors.last_name && (
+              <p className="text-[#de2c41]">{errors.last_name.message}</p>
             )}
           </div>
           <div className={`flex flex-col gap-2`}>
@@ -139,7 +139,11 @@ const ContactForm = () => {
             )}
           </div>
           <div className={`flex flex-col gap-2`}>
-            <Label>Description</Label>
+            <Label>
+              Description{" "}
+              <span className="text-">(estimated measurements)</span>
+            </Label>
+
             <Controller
               name="description"
               control={control}

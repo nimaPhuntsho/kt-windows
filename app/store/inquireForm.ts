@@ -13,9 +13,9 @@ export const useInquiryStore = create<InquireStore>()(
   persist(
     (set) => ({
       inquiryData: {
-        firstName: "",
+        first_name: "",
         middleName: "",
-        lastName: "",
+        last_name: "",
         email: "",
         mobile: "",
         description: "",
@@ -27,9 +27,9 @@ export const useInquiryStore = create<InquireStore>()(
       reset: () =>
         set({
           inquiryData: {
-            firstName: "",
+            first_name: "",
             middleName: "",
-            lastName: "",
+            last_name: "",
             email: "",
             mobile: "",
             description: "",

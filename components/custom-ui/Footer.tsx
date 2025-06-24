@@ -4,11 +4,14 @@ import { MapPinCheckInside } from "lucide-react";
 import { PhoneForwarded } from "lucide-react";
 import { Send } from "lucide-react";
 import Link from "next/link";
+import { customStyles } from "@/app/styles/styles";
+
+const { bg, text } = customStyles;
 
 const Footer = () => {
   return (
-    <div className="flex flex-col text-black gap-6 p-6 mt-2 bg-[#FFE6C9] rounded-sm ">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+    <div className={`flex flex-col gap-6 p-6 border-t bg-[#FFFDF6] `}>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 text-sm ">
         <Link href="/">
           <Image
             src="/images/kt-logo.svg"

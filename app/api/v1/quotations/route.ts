@@ -6,8 +6,15 @@ import InquireEmail from "@/app/emails/InquireEmail";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
+  console.log({
+    body: body,
+  });
   const parsedBody = messageSchema.safeParse(body);
   const supabase = await createClient();
+
+  console.log({
+    parsedBodyError: parsedBody.error,
+  });
 
   if (parsedBody.error) {
     return NextResponse.json(
@@ -123,9 +130,11 @@ export async function POST(req: NextRequest) {
       }
     );
   }
-  console.log(parsedBody.data);
+  console.log({
+    parsedBodyData: parsedBody.data,
+  });
 
-  sendEmail({
+  const { error: emailError } = await sendEmail({
     from: "inquiry@resend.dev",
     to: parsedBody.data.email,
     subject: "Confirmation: We've got your inquiry",
@@ -134,6 +143,20 @@ export async function POST(req: NextRequest) {
       contents: description,
     }),
   });
+
+  if (emailError) {
+    return NextResponse.json(
+      {
+        success: false,
+        message: "There was error sending confirmation email to the user ",
+        error: emailError,
+        data: null,
+      },
+      {
+        status: 400,
+      }
+    );
+  }
 
   return NextResponse.json(
     {

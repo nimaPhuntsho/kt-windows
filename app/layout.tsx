@@ -38,12 +38,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.className} p-6 flex flex-col items-center w-full`}
+        className={`${manrope.className}  flex flex-col items-center w-full`}
       >
         <div
           className={`flex flex-col justify-between h-[100dvh] w-full max-w-[1200px] `}
         >
-          <div>
+          <div className="flex flex-col gap-2">
             <Header />
             {children}
             <Toaster />
