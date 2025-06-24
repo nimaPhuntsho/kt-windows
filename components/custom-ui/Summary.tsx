@@ -55,7 +55,7 @@ const SummaryCard = () => {
     try {
       setFetchState((state) => ({ ...state, loading: true }));
       const baseUrl = production;
-      const { success, data } = await customFetch({
+      const { success } = await customFetch({
         method: "POST",
         endpoint: `${baseUrl}/api/v1/quotations`,
         body: {
