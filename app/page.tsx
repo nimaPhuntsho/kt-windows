@@ -10,9 +10,7 @@ import {
 } from "@/components/ui/card";
 import Link from "next/link";
 import { PhoneForwarded } from "lucide-react";
-import { customStyles } from "./styles/styles";
 export default async function Home() {
-  const { bg, text } = customStyles;
   const services = [
     {
       title: "Sliding windows",
@@ -103,9 +101,6 @@ export default async function Home() {
       <main className={`flex flex-col gap-2`}>
         <div className={`flex flex-col md:flex-row gap-2`}>
           <div
-            style={{
-              backgroundColor: `${bg.primary}`,
-            }}
             className={`relative w-full  items-start justify-center flex flex-col gap-4  p-7 min-h-[500px] `}
           >
             <h1 className={`text-5xl `}>

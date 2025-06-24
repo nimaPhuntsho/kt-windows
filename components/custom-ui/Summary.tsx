@@ -43,7 +43,7 @@ const SummaryCard = () => {
 
   const handleEdit = () => router.push("/contact");
 
-  const { production, dev } = envMode;
+  const { production } = envMode;
 
   useEffect(() => {
     if (first_name === "") router.push("/contact");

@@ -2,9 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { AlignJustify } from "lucide-react";
 import Link from "next/link";
-import { customStyles } from "@/app/styles/styles";
-
-const { bg, text } = customStyles;
 
 const Header = () => {
   return (

@@ -4,9 +4,6 @@ import { MapPinCheckInside } from "lucide-react";
 import { PhoneForwarded } from "lucide-react";
 import { Send } from "lucide-react";
 import Link from "next/link";
-import { customStyles } from "@/app/styles/styles";
-
-const { bg, text } = customStyles;
 
 const Footer = () => {
   return (
